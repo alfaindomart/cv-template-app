@@ -1,44 +1,17 @@
 import { useState } from "react";
 // import DatePicker from "react-date-picker"
-import Input from "./components/input";
+import Input from "./components/Input";
 import './form.css'
-import Output from "./output";
+import Output from "./Output";
 
 
 
 export default function MainForm() {
     // const [value, onChange] = useState(new Date());
-    const [inputValue, setInputValue] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        city: '',
-        "past-company-name": '',
-
-        
-    });
-
-    function handleChange(e) {
-        const {name, value} = e.target;
-        setInputValue({
-            ...inputValue,
-            [name]: value
-        })
-    }
 
     return (
-    <div className="content-wrap">
-        <div className="form-wrap">
-            <form>
-                <Input htmlFor={"name"} label={"name"} type={"text"} className={"name"} name={"name"} value={inputValue.name} onChange={handleChange}></Input>
-                <Input htmlFor={"email"} label={"Email"} type={"email"} className={"email"} name={"email"} value={inputValue.email} onChange={handleChange}></Input>
-                <Input htmlFor={"phone"} label={"Phone"} type={"number"} className={"phone"} name={"phone"} value={inputValue.phone} onChange={handleChange}></Input>
-                <Input htmlFor={"city"} label={"city"} type={"text"} className={"city"} name={"city"} value={inputValue.city} onChange={handleChange}></Input>
-                <Input htmlFor={"past-company-name"} type={"text"} className={"past-company-name"} name={"past-company-name"} value={inputValue["past-company-name"]} onChange={handleChange} ></Input>
-                <Input htmlFor={"past-location"} type={"text"} className={"past-location"} name={"past-location"} value={inputValue["past-location"]} onChange={handleChange} ></Input>
-                <Input htmlFor={"past-position"} type={"text"} className={"past-position"} name={"past-position"} value={inputValue["past-position"]} onChange={handleChange} ></Input>
-                <Input htmlFor={"past-responsibility"} type={"text"} className={"past-responsibility"} name={"past-responsibility"} value={inputValue["past-responsibility"]} onChange={handleChange} ></Input>
-                
+    <>
+        <form>
                 {/* <div className="name-wrap">
                     <label htmlFor="name">Name</label>
                     <input type="text" className="name" name="name" />
@@ -114,14 +87,6 @@ export default function MainForm() {
                     <button className="add-cert-skill">add more</button>
                 </div> */}
             </form>
-        </div>
-        <div className="cv-wrap">
-            <Output text={inputValue.name}></Output>
-            <br />
-            <Output text={inputValue.email}></Output>
-            <br />
-            <Output text={inputValue['past-company-name']}></Output>
-        </div>
-    </div>
+    </>
     )
 }

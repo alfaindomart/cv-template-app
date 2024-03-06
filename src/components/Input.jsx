@@ -6,7 +6,12 @@ export default function Input({label, htmlFor, type, className, name, text, onCh
         <>
         <div className={className + '-wrap'}>
             <label htmlFor={htmlFor}>{label}</label>
-            <input type={type} className={className} name={name} value={text} onChange={onChange}/>
+            <input 
+            type={type} 
+            className={className} 
+            name={name} 
+            value={text} 
+            onChange={onChange}/>
         </div>
         </>
     )

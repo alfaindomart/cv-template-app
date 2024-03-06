@@ -1,12 +1,26 @@
 // import { useState } from 'react'
-import MainForm from './form'
 import './App.css'
 
 function App() {
 
+  function handleChange(e) {
+    const {name, value} = e.target;
+    setInputValue({
+        ...inputValue,
+        [name]: value
+    })
+}
+
   return (
     <>
-    <MainForm />
+    <div>
+      <div className="cv-form">
+
+      </div>
+      <div className="preview-wrap">
+
+      </div>
+    </div>
     </>
   )
 }
