@@ -3,15 +3,15 @@
 import Input from "../Input";
 // import Output from "../../output";
 
-export function ProfileInput() {
+export function ProfileInput(props) {
+    const {email, phone, city, name, onChange} = props
     
     return(
     <>
-        <Input htmlFor={"name"} label={"name"} type={"text"} className={"name"} name={"name"}  ></Input>
-        <Input htmlFor={"email"} label={"Email"} type={"email"} className={"email"} name={"email"}  ></Input>
-        <Input htmlFor={"phone"} label={"Phone"} type={"number"} className={"phone"} name={"phone"}  ></Input>
-        <Input htmlFor={"city"} label={"city"} type={"text"} className={"city"} name={"city"}  ></Input>
+        <Input onChange={onChange} value={name} htmlFor={"Name"} label={"Name"} type={"text"} id={"Name"} name={"Name"}/>
+        <Input onChange={onChange} value={email} htmlFor={"Email"} label={"Email"} type={"email"} id={"Email"} name={"Email"}/>
+        <Input onChange={onChange} value={phone} htmlFor={"Phone"} label={"Phone"} type={"number"} id={"Phone"} name={"Phone"}/>
+        <Input onChange={onChange} value={city} htmlFor={"City"} label={"City"} type={"text"} id={"City"} name={"City"}/>
     </>
     )
-
 }

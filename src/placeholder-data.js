@@ -6,10 +6,10 @@ export const placeHolderData = {
         City: ' New Mergan City',
     },
     PastWork1: {
-        PastCompany: 'Warung Spesialis Sambel Cupangg',
-        StartDate: 'Oct 2020',
-        EndDate: 'December 2022',
-        CompanyLocation: 'New Mergan City',
+        PastCompany: 'Warung Bamboeeee.com',
+        StartDate: '12 October 2020',
+        EndDate: '13 December 2022',
+        Location: 'New Mergan City',
         JobTitle: 'CEO/Owner',
         Responsibilities: {
             1: 'develop and manage all cupang',

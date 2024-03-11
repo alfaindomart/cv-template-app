@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
 import Responsibilities from "./components/Responsibilities"
 
-export default function PastWorkPreview(pastCompany, startDate, endDate, companyLocation, jobTitle, responsibilities) {
+export default function PastWorkPreview(props) {
+    const {pastCompany, startDate, endDate, companyLocation, jobTitle} = props
     return(
         <>
         <div className="past-work wrap">

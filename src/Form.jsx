@@ -1,18 +1,28 @@
-import { useState } from "react";
-// import DatePicker from "react-date-picker"
-import Input from "./components/Input";
-import './form.css'
-import Output from "./Output";
+// /* eslint-disable react/prop-types */
+// import './form.css'
+// import { ProfileInput } from "./components/profile/Profile-input";
+// import PastWorkInput from "./components/past-work/PastWork-input";
 
+// export default function MainForm({props}) {
+//     const {email, phone, city, name, onChange} = props;
 
+//     return (
+//     <>
+//         <form>
+//             <div><ProfileInput
+//             email={email}
+//             phone={phone} 
+//             city={city} 
+//             name={name} 
+//             onChange={onChange}/>
+//             </div>
+//             <div><PastWorkInput /></div>
+//         </form>
+//     </>
+//     )
+// }
 
-export default function MainForm() {
-    // const [value, onChange] = useState(new Date());
-
-    return (
-    <>
-        <form>
-                {/* <div className="name-wrap">
+/* <div className="name-wrap">
                     <label htmlFor="name">Name</label>
                     <input type="text" className="name" name="name" />
                 </div>
@@ -85,8 +95,4 @@ export default function MainForm() {
                     <label htmlFor="certifications">Certifications</label>
                     <input type="text" className="certifications" name="certifications"/>
                     <button className="add-cert-skill">add more</button>
-                </div> */}
-            </form>
-    </>
-    )
-}
+                </div> */

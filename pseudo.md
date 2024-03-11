@@ -28,12 +28,14 @@
 
   - Right Column is the CV, refer to actual CV for Design
 
-User load the app,
-input is empty, preview show temporary data (preview => name = john doe; email: johndoe@jmail)
-user start typing in name and email:
-user clicked name input,
-
-    onChange, setState of the input and name preview
+//Behaviour
+App loads
+Profile, Past Work, Past Education, and Certificaation etc display placeholder data =>
+in state, useState(placeholder data)
+user typed in Profile: name input =>
+onChange, setState(e.target.value)
+preview also changed as user type in, =>
+pass state to Preview as props
 
 //Shark's cv app code structure
 <index>

@@ -1,16 +1,17 @@
 /* eslint-disable react/prop-types */
 // import PropTypes from 'prop-types'
 
-export default function Input({label, htmlFor, type, className, name, text, onChange}) {
+export default function Input(props) {
+    const {label, htmlFor, type, id, name, value, onChange} = props
     return (
         <>
-        <div className={className + '-wrap'}>
+        <div id={id + '-wrap'}>
             <label htmlFor={htmlFor}>{label}</label>
             <input 
             type={type} 
-            className={className} 
+            id={id} 
             name={name} 
-            value={text} 
+            value={value} 
             onChange={onChange}/>
         </div>
         </>
@@ -22,7 +23,7 @@ export default function Input({label, htmlFor, type, className, name, text, onCh
 //     // label: PropTypes.string,
 //     // htmlFor: PropTypes.string,
 //     // type: PropTypes.string,
-//     // className: PropTypes.string,
+//     // id: PropTypes.string,
 //     // text: PropTypes.string,
 //     // onChange: PropTypes.any
 // }
