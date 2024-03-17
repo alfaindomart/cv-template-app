@@ -37,6 +37,12 @@ onChange, setState(e.target.value)
 preview also changed as user type in, =>
 pass state to Preview as props
 
+//adding a new work experience and education
+user typed in profile -> setState copied the profile obbject from placeholder and change the value;
+user clicked work input -> get the clicked element id
+user typed in latest work experience
+-> setState copied PastWorks Array of objects
+
 //Shark's cv app code structure
 <index>
 <App>

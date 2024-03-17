@@ -1,3 +1,5 @@
+import { nanoid } from "nanoid"
+
 export const placeHolderData = {
     UserProfile: {
         Name: 'Mr Hasan',
@@ -5,7 +7,9 @@ export const placeHolderData = {
         Phone: '0812345678',
         City: ' New Mergan City',
     },
-    PastWork1: {
+    PastWorks: [
+        {
+        key: nanoid(),
         PastCompany: 'Warung Bamboeeee.com',
         StartDate: '12 October 2020',
         EndDate: '13 December 2022',
@@ -14,19 +18,8 @@ export const placeHolderData = {
         Responsibilities: {
             1: 'develop and manage all cupang',
             2: 'Meditate to calm my mind which result in better cupang'
-        }
-    },
-    PastWork2: {
-        PastCompany: 'Slebew SugarCane',
-        StartDate: 'Jan 2019',
-        EndDate: 'August 2019',
-        CompanyLocation: 'Krebet',
-        JobTitle: 'CEO Son',
-        Responsibilities: {
-            1: 'Plant sugar can along with other plants',
-            2: 'Painted my house'
-        }
-    },
+        }},
+    ],
     PastEducation: {
         SchoolName: 'Brawijaya University',
         GraduationDate: '2019',

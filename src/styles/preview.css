@@ -1,0 +1,30 @@
+.preview-wrap {
+    display: flex;
+    flex-direction: column;
+
+    background-color: white;
+    color: black;
+
+    text-align: left;
+
+    max-width: 35vw;
+  }
+
+.profile-wrap, .work-wrap, .education-wrap {
+    margin: 0.44rem 0.5rem 0.29rem 0.5rem ;
+}
+
+.profile-wrap, h2 {
+    border-bottom: 1px black solid;
+}
+
+.contact-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.name-wrap {
+    font-size: larger;
+    font-weight: 700;
+}

@@ -17,9 +17,3 @@ form {
   margin: 2rem;
 }
 
-.preview-wrap {
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  color: black;
-}

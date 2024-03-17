@@ -1,25 +1,43 @@
 // import { useState } from 'react'
-import './App.css'
+import './styles/App.css'
 import { useState } from 'react'
 import { placeHolderData } from './placeholder-data'
 import Preview from './Preview'
 import { ProfileInput } from './components/profile/Profile-input'
 import PastWorkInput from './components/past-work/PastWork-input'
+import EducationInput from './components/education/Education-input'
+import AddWorkBtn from './components/buttons/add-work-btn'
+import AddWork from './components/past-work/AddWork'
 
 function App() {
   const [profile, setProfile] = useState(placeHolderData.UserProfile)
-  const [pastWork, setPastWork] = useState(placeHolderData.PastWork1)
+  const [pastWorks, setPastWorks] = useState(placeHolderData.PastWorks)
+  const [pastEdcuation, setEducation] = useState(placeHolderData.PastEducation)
 
 
   function handleProfileChange(e) {
     const selected = e.target.id
-    console.log(selected)
     setProfile({...profile, [selected]: e.target.value})
+    console.log(profile)
   }
 
-  function handleWorkChange(e) {
+  function handleWorkChange(e, index) {
     const selected = e.target.id
-    setPastWork({...pastWork, [selected]: e.target.value})
+    let currentWorkArr = [...pastWorks]
+    setPastWorks({...pastWorks, [selected]: e.target.value})
+    console.log(currentWorkArr[index])
+  }
+
+  function handleEducationChange(e) {
+    const selected = e.target.id
+    setEducation({...pastEdcuation, [selected]: e.target.value})
+  }
+
+  function addNewExperience(e) {
+    e.preventDefault()
+    return (
+      <AddWork />
+    )
   }
 
 
@@ -28,7 +46,7 @@ function App() {
     <div className='app-wrap'>
       <form className="cv-form">
         <div>       
-        <ProfileInput 
+        <ProfileInput
         onChange={handleProfileChange}
         name={profile.Name}
         email={profile.Email}
@@ -37,20 +55,30 @@ function App() {
         />
         </div>
         <div>
-          <PastWorkInput 
+          <PastWorkInput
+          key={pastWorks[0].key}
           onChange={handleWorkChange}
-          company={pastWork.PastCompany}
-          startDate={pastWork.StarDate}
-          endDate={pastWork.EndDate}
-          location={pastWork.Location}
-          jobTitle={pastWork.JobTitle}
+          company={pastWorks[0].PastCompany}
+          startDate={pastWorks[0].StarDate}
+          endDate={pastWorks[0].EndDate}
+          location={pastWorks[0].Location}
+          jobTitle={pastWorks[0].JobTitle}
           />
+          <AddWorkBtn onClick={addNewExperience}/>
         </div>
+        <EducationInput 
+        onChange={handleEducationChange}
+        SchoolName={pastEdcuation.SchoolName}
+        GraduationDate={pastEdcuation.GraduationDate}
+        Location={pastEdcuation.Location}
+        Degree={pastEdcuation.Degree}
+        />
       </form>
-      <div className="preview-wrap">
+      <div>
         <Preview 
         profile={profile}
-        pastWork={pastWork}
+        pastWorks={pastWorks[0]}
+        pastEducation={pastEdcuation}
         />
       </div>
     </div>
