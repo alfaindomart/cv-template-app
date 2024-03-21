@@ -9,7 +9,7 @@ export const placeHolderData = {
     },
     PastWorks: [
         {
-        key: nanoid(),
+        UID: nanoid(),
         PastCompany: 'Warung Bamboeeee.com',
         StartDate: '12 October 2020',
         EndDate: '13 December 2022',

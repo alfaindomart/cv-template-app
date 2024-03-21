@@ -1,5 +1,6 @@
 // import { useState } from 'react'
 import './styles/App.css'
+import { nanoid } from 'nanoid'
 import { useState } from 'react'
 import { placeHolderData } from './placeholder-data'
 import Preview from './Preview'
@@ -7,11 +8,11 @@ import { ProfileInput } from './components/profile/Profile-input'
 import PastWorkInput from './components/past-work/PastWork-input'
 import EducationInput from './components/education/Education-input'
 import AddWorkBtn from './components/buttons/add-work-btn'
-import AddWork from './components/past-work/AddWork'
+// import AddWork from './components/past-work/AddWork'
 
 function App() {
   const [profile, setProfile] = useState(placeHolderData.UserProfile)
-  const [pastWorks, setPastWorks] = useState(placeHolderData.PastWorks)
+  const [pastWorks, setPastWorks]  = useState(placeHolderData.PastWorks)
   const [pastEdcuation, setEducation] = useState(placeHolderData.PastEducation)
 
 
@@ -21,12 +22,23 @@ function App() {
     console.log(profile)
   }
 
-  function handleWorkChange(e, index) {
-    const selected = e.target.id
-    let currentWorkArr = [...pastWorks]
-    setPastWorks({...pastWorks, [selected]: e.target.value})
-    console.log(currentWorkArr[index])
-  }
+  function handleWorkChange(e) {
+    const target = e.target
+    const workWrapper = target.closest('.past-work-wrap')
+    const workObject = workWrapper.id
+    const selectedInput = target.id
+
+    console.log(workObject)
+    console.log(selectedInput)
+    console.log(target.value)
+    
+    setPastWorks(prevPastWorks => prevPastWorks.map(
+      pastwork => {if (workObject.id === pastwork.UID) 
+        {return {...pastwork, [selectedInput]: target.value}}
+        return pastwork
+      }
+    )
+    )}
 
   function handleEducationChange(e) {
     const selected = e.target.id
@@ -35,9 +47,16 @@ function App() {
 
   function addNewExperience(e) {
     e.preventDefault()
-    return (
-      <AddWork />
-    )
+    const newExperience = {
+      UID: nanoid(),
+      PastCompany: '',
+      StartDate: '',
+      EndDate: '',
+      Location: '',
+      JobTitle: '',
+    }
+    setPastWorks([...pastWorks, newExperience])
+    console.log(pastWorks)
   }
 
 
@@ -55,15 +74,20 @@ function App() {
         />
         </div>
         <div>
-          <PastWorkInput
-          key={pastWorks[0].key}
-          onChange={handleWorkChange}
-          company={pastWorks[0].PastCompany}
-          startDate={pastWorks[0].StarDate}
-          endDate={pastWorks[0].EndDate}
-          location={pastWorks[0].Location}
-          jobTitle={pastWorks[0].JobTitle}
-          />
+          {pastWorks.map((pastwork) => 
+          (
+            <PastWorkInput 
+            key={pastwork.UID}
+            id={pastwork.UID}
+            onChange={handleWorkChange}
+            PastCompany={pastwork.PastCompany}
+            StartDate={pastwork.StartDate}
+            EndDate={pastwork.EndDate}
+            Location={pastwork.Location}
+            JobTitle={pastwork.JobTitle}
+            />
+          )
+          )}
           <AddWorkBtn onClick={addNewExperience}/>
         </div>
         <EducationInput 

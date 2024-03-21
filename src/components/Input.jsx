@@ -11,7 +11,7 @@ export default function Input(props) {
             type={type} 
             id={id} 
             name={name} 
-            value={value} 
+            value={value}
             onChange={onChange}/>
         </div>
         </>

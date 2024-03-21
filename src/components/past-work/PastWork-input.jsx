@@ -2,11 +2,11 @@
 import Input from "../Input";
 
 function PastWorkInput(props) {
-    const {company, startDate, endDate, location, jobTitle, onChange} = props
+    const {company, startDate, endDate, location, jobTitle, onChange, id} = props
 
 
     return (
-     <div id="past-work-wrap">
+     <div className="past-work-wrap" id={id}>
          <Input id={"PastCompany"} htmlFor={"PastCompany"} label={"Company Name"} type={"text"} name={"PastCompany"} value={company} onChange={onChange}/>
          <Input id={"Location"} htmlFor={"Location"} label={"City"} type={"text"} name={"Location"} value={location} onChange={onChange}/>
          <Input id={"StartDate"} htmlFor={"StartDate"} label={"Start Date"} type={"date"} name={"StartDate"} value={startDate} onChange={onChange}/>
